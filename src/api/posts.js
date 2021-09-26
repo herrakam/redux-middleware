@@ -2,7 +2,7 @@ const sleep = (n) => {
   new Promise((resolve) => setTimeout(resolve, n));
 };
 
-const post = [
+const posts = [
   {
     id: 1,
     title: "미들웨어 킹받네",
@@ -25,7 +25,7 @@ export const getPosts = async () => {
   return posts;
 };
 
-export const getPostsById = async () => {
+export const getPostById = async (id) => {
   await sleep(500);
   return posts.find((post) => post.id === id);
 };
