@@ -1,31 +1,11 @@
-const sleep = (n) => {
-  new Promise((resolve) => setTimeout(resolve, n));
-};
-
-const posts = [
-  {
-    id: 1,
-    title: "미들웨어 킹받네",
-    body: "직접 만들기도 킹받네",
-  },
-  {
-    id: 2,
-    title: "미들웨어 킹받네2",
-    body: "직접 만들기도 킹받네2",
-  },
-  {
-    id: 3,
-    title: "미들웨어 킹받네3",
-    body: "직접 만들기도 킹받네3",
-  },
-];
+import axios from "axios";
 
 export const getPosts = async () => {
-  await sleep(500);
-  return posts;
+  const response = await axios.get("http://localhost:4000/posts");
+  return response.data;
 };
 
 export const getPostById = async (id) => {
-  await sleep(500);
-  return posts.find((post) => post.id === id);
+  const response = await axios.get(`http://localhost:4000/posts/${id}`);
+  return response.data;
 };
